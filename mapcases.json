@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 400,
+  "title": "Melanoma cases in Australia 2020-2023",
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/chiaravenditti/FIT3179/main/HomeworkWeek9/State.json",
+    "format": {"type": "topojson", "feature": "State"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "values": [
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "New South Wales", "Number": 929, "Rate": 2.1},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Victoria", "Number": 649, "Rate": 1.9},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Queensland", "Number": 672, "Rate": 2.5},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Western Australia", "Number": 429, "Rate": 3.2},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "South Australia", "Number": 240, "Rate": 2.1},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Tasmania", "Number": 70, "Rate": 1.9},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Australian Capital Territory", "Number": 39, "Rate": 2.1},
+            {"Cancer": "Melanoma", "Year": "2020-2023", "Sex": "Persons", "State": "Northern Territory", "Number": 5, "Rate": 0.6}
+          ]
+        },
+        "key": "State",
+        "fields": ["Rate"]
+      }
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Rate",
+      "type": "quantitative",
+      "scale": {
+        "type": "quantize",
+        "range": ["#ffcccb", "#ff9999", "#ff6666", "#ff4c4c", "#ff1a1a"]
+      }
+    },
+    "tooltip": [
+      {"field": "properties.STATE_NAME", "type": "nominal", "title": "State"},
+      {"field": "Rate", "type": "quantitative"}
+    ]
+  }
+}
