@@ -1,0 +1,9 @@
+Cancer;Year;Sex;State;Number;Rate
+Melanoma;2020-2023;Persons;New South Wales;929;2,1
+Melanoma;2020-2023;Persons;Victoria;649;1,9
+Melanoma;2020-2023;Persons;Queensland;672;2,5
+Melanoma;2020-2023;Persons;Western Australia;429;3,2
+Melanoma;2020-2023;Persons;South Australia;240;2,1
+Melanoma;2020-2023;Persons;Tasmania;70;1,9
+Melanoma;2020-2023;Persons;Australian Capital Territory;39;2,1
+Melanoma;2020-2023;Persons;Northern Territory;5;0,6
