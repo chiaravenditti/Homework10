@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line Chart of Deaths Over Years",
+  "title": "Melanoma Deaths Over Years",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Year": 1997, "Number of deaths": 416},
+      {"Year": 1998, "Number of deaths": 403},
+      {"Year": 1999, "Number of deaths": 390},
+      {"Year": 2000, "Number of deaths": 437},
+      {"Year": 2001, "Number of deaths": 519},
+      {"Year": 2002, "Number of deaths": 490},
+      {"Year": 2003, "Number of deaths": 510},
+      {"Year": 2004, "Number of deaths": 545},
+      {"Year": 2005, "Number of deaths": 538},
+      {"Year": 2006, "Number of deaths": 476},
+      {"Year": 2007, "Number of deaths": 589},
+      {"Year": 2008, "Number of deaths": 595},
+      {"Year": 2009, "Number of deaths": 584},
+      {"Year": 2010, "Number of deaths": 634},
+      {"Year": 2011, "Number of deaths": 610},
+      {"Year": 2012, "Number of deaths": 646},
+      {"Year": 2013, "Number of deaths": 669},
+      {"Year": 2014, "Number of deaths": 675},
+      {"Year": 2015, "Number of deaths": 668},
+      {"Year": 2016, "Number of deaths": 688},
+      {"Year": 2017, "Number of deaths": 730},
+      {"Year": 2018, "Number of deaths": 709},
+      {"Year": 2019, "Number of deaths": 720},
+      {"Year": 2020, "Number of deaths": 713},
+      {"Year": 2021, "Number of deaths": 714},
+      {"Year": 2022, "Number of deaths": 685}
+    ]
+  },
+  "params": [
+    {
+      "name": "yearSelection",
+      "value": 1997,
+      "bind": {
+        "input": "range",
+        "min": 1997,
+        "max": 2022,
+        "step": 1,
+        "name": "Year Selection"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Year >= yearSelection"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "Number of deaths",
+          "type": "quantitative",
+          "title": "Number of Deaths"
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "Number of deaths",
+            "type": "quantitative",
+            "title": "Number of Deaths"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontSize": 11,
+        "dy": 15 
+      },
+      "encoding": {
+        "x": {"value": 400},  
+        "y": {"value": 460}, 
+        "text": {"value": "Note that the highest number of deaths (730) is achieved in 2017."}
+      }
+    }
+  ]
+}
